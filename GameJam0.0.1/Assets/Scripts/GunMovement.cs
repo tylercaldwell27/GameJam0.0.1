@@ -17,6 +17,6 @@ public class GunMovement : MonoBehaviour
         difference.Normalize();
 
         float rotz = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, rotz + rotationOffset);
+        transform.rotation = Quaternion.Euler(rotz + rotationOffset, 0f, rotz + rotationOffset);
     }
 }
