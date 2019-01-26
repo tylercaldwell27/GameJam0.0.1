@@ -149,15 +149,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 672457987}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: genericEnemy
+      value: 
+      objectReference: {fileID: 8324833825245885099, guid: 5a3e7e0c49583524a926f392229aad19,
+        type: 3}
     - target: {fileID: 6035229627530613532, guid: 8b41cd85bfb8fa941a769ca84cb5eb0d,
         type: 3}
       propertyPath: m_Name
-      value: Wall (1)
+      value: RightWall
       objectReference: {fileID: 0}
     - target: {fileID: 6035229627530613532, guid: 8b41cd85bfb8fa941a769ca84cb5eb0d,
         type: 3}
       propertyPath: m_TagString
-      value: Wall
+      value: RightWall
       objectReference: {fileID: 0}
     - target: {fileID: 6035229628106486634, guid: 8b41cd85bfb8fa941a769ca84cb5eb0d,
         type: 3}
@@ -643,7 +648,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &672457987
 Transform:
   m_ObjectHideFlags: 0
@@ -698,9 +703,10 @@ MonoBehaviour:
   doorUpstairs: {fileID: 0}
   doorDownstairs: {fileID: 0}
   repairCoolDownTime: 0
-  isRepairing: 0
-  isNearAWall: 0
-  wall: {fileID: 0}
+  isNearLeftWall: 0
+  isNearRightWall: 0
+  leftWall: {fileID: 0}
+  rightWall: {fileID: 0}
   Left: 97
   Right: 100
   Up: 119
@@ -1005,9 +1011,10 @@ MonoBehaviour:
   doorUpstairs: {fileID: 563597326}
   doorDownstairs: {fileID: 1923124524}
   repairCoolDownTime: 3
-  isRepairing: 0
-  isNearAWall: 0
-  wall: {fileID: 6035229628106486634, guid: 8b41cd85bfb8fa941a769ca84cb5eb0d, type: 3}
+  isNearLeftWall: 0
+  isNearRightWall: 0
+  leftWall: {fileID: 1366560771}
+  rightWall: {fileID: 286342424}
   Left: 97
   Right: 100
   Up: 119
@@ -1102,15 +1109,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 672457987}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: genericEnemy
+      value: 
+      objectReference: {fileID: 8324833825245885099, guid: 5a3e7e0c49583524a926f392229aad19,
+        type: 3}
     - target: {fileID: 6035229627530613532, guid: 8b41cd85bfb8fa941a769ca84cb5eb0d,
         type: 3}
       propertyPath: m_Name
-      value: Wall
+      value: LeftWall
       objectReference: {fileID: 0}
     - target: {fileID: 6035229627530613532, guid: 8b41cd85bfb8fa941a769ca84cb5eb0d,
         type: 3}
       propertyPath: m_TagString
-      value: Wall
+      value: LeftWall
       objectReference: {fileID: 0}
     - target: {fileID: 6035229628106486634, guid: 8b41cd85bfb8fa941a769ca84cb5eb0d,
         type: 3}
@@ -1167,7 +1179,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 8b41cd85bfb8fa941a769ca84cb5eb0d, type: 3}
 --- !u!4 &1366560771 stripped
 Transform:
@@ -1190,7 +1203,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1630981681
 Transform:
   m_ObjectHideFlags: 0

@@ -14,9 +14,11 @@ public class PlayerControllerRepair : MonoBehaviour
     public Transform doorDownstairs;
 
     public float repairCoolDownTime = 3f;
-    [SerializeField] bool isRepairing = false;
-    [SerializeField] bool isNearAWall = false;
-    public Transform wall;
+    //[SerializeField] bool isRepairing = false;
+    [SerializeField] bool isNearLeftWall = false;
+    [SerializeField] bool isNearRightWall = false;
+    public Transform leftWall;
+    public Transform rightWall;
 
     // Custom Keys used to move player
     public KeyCode Left;
@@ -31,10 +33,7 @@ public class PlayerControllerRepair : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        wall = GetComponent<Transform>();
-        //doorUpstairs = GetComponent<Transform>();
-        //doorDownstairs = GetComponent<Transform>();
-        
+
     }
 
     // Update is called once per frame
@@ -83,55 +82,75 @@ public class PlayerControllerRepair : MonoBehaviour
             {
                 Debug.LogWarning("Player is NOT at  door");
             }
-
-
-
         }
 
         // Repair skill
         if (Input.GetKeyDown(Interact))
         {
             // todo check if wall health is full
-            if (isNearAWall)
+            if (isNearLeftWall)
             {
-                if (wall.GetComponent<WallHealth>().health < 500 && wall.GetComponent<WallHealth>().health > 0)
+                if (leftWall.GetComponent<WallHealth>().health < 500f)
                 {
                     StartCoroutine("RepairCoolDown");
-                    Repair();
+                    Repair(isNearLeftWall, isNearRightWall);
                 }
             }
-            else
+            else { Debug.LogWarning("Not near a wall"); }
+
+            if (isNearRightWall)
             {
-                Debug.LogWarning("Not near a wall");
+                if (rightWall.GetComponent<WallHealth>().health < 500f)
+                {
+                    StartCoroutine("RepairCoolDown");
+                    Repair(isNearLeftWall, isNearRightWall);
+                }
             }
+            else { Debug.LogWarning("Not near a wall"); }
+
 
         }   
     }
 
     IEnumerator RepairCoolDown()
     {
-        isRepairing = true;
         yield return new WaitForSeconds(repairCoolDownTime);
-        isRepairing = false;
-
     }
-    void Repair()
+    void Repair(bool lWall, bool rWall)
     {
         // add health to the wall
-        wall.GetComponent<WallHealth>().health = 100.0f;
+        if (lWall)
+        {
+            leftWall.GetComponent<WallHealth>().health = 500.0f;
+        }
+        if (rWall)
+        {
+            rightWall.GetComponent<WallHealth>().health = 500.0f;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.gameObject.tag == "Wall")
+        if(col.gameObject.tag == "LeftWall")
         {
-            isNearAWall = true;
+            isNearLeftWall = true;
+        }
+        if (col.gameObject.tag == "RightWall")
+        {
+            isNearRightWall = true;
         }
     }
 
     private void OnCollisionExit2D(Collision2D col)
     {
-        isNearAWall = false;
+        if (col.gameObject.tag == "LeftWall")
+        {
+            isNearLeftWall = false;
+        }
+        if (col.gameObject.tag == "RightWall")
+        {
+            isNearRightWall = false;
+        }
     }
 
 
