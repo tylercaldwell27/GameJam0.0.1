@@ -5,19 +5,56 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerControllerRepair : MonoBehaviour
 {
-    public float speed = 5.0f;
-    Rigidbody2D rb;
+    // Movement of the player
+    public float moveSpeed;
+    [SerializeField] bool atDoorUp;
+    [SerializeField] bool atDoorDown;
+    public Transform doorUp;
+    public Transform doorDown;
 
-    // Start is called before the first frame update
+    // Keys used to move player
+    public KeyCode Left;
+    public KeyCode Right;
+    public KeyCode Up;
+
+    // Players Body
+    private Rigidbody2D rb;
+
+    // Use this for initialization
     void Start()
     {
-        rb.GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float moveVal = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(moveVal * speed, rb.velocity.y);
+
+
+        if (Input.GetKey(Left))
+        {
+            rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
+        }
+        else if (Input.GetKey(Right))
+        {
+            rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
+        }
+        else
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+        }
+
+        if (Input.GetKey(Up))
+        {
+            if (atDoorUp)
+            {
+                // player goes to 1st floor
+            }
+            if (atDoorDown)
+            {
+                // player goes to 2nd floor
+            }
+        }
+
     }
 }
