@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,15 +9,21 @@ public class EnemyHealthSystem : MonoBehaviour
     public float attackDmg;
     public float AttackSpeed = 0.5f;
 
-    // Start is called before the first frame update
-    void Start()
+
+
+    public void DeductHealth(float deductHealth)
     {
-        
+        health -= deductHealth;
+        Debug.Log(health);
+        if (health <= 0)
+        {
+
+            EnemyDead();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void EnemyDead()
     {
-        
+        Destroy(gameObject);
     }
 }
