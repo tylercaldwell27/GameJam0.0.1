@@ -12,6 +12,7 @@ public class PlayerControllerRepair : MonoBehaviour
     [SerializeField] bool atFirstFloorDoor = false;
     public Transform doorUpstairs;
     public Transform doorDownstairs;
+    public float teleportoffset = 1.61f;
 
     public float repairCoolDownTime = 3f;
     //[SerializeField] bool isRepairing = false;
@@ -60,17 +61,19 @@ public class PlayerControllerRepair : MonoBehaviour
             {
                 //player goes to 1st floor
                 //this.transform.position = doorDownstairs.position;
+                this.transform.Translate(0, -teleportoffset, 0);
                 Debug.Log("Player is at 2nd Floor Door");
             }
-            
+
             if (atFirstFloorDoor)
             {
                 // player goes to 2nd floor
                 //this.transform.position = doorUpstairs.position;
+                this.transform.Translate(0, teleportoffset, 0);
                 Debug.Log("Player is at 1st Floor Door");
             }
 
-            if(!atFirstFloorDoor)
+            if (!atFirstFloorDoor)
             {
                 Debug.LogWarning("Player is NOT at First Floor door");
             }
