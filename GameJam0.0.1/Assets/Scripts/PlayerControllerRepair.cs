@@ -93,7 +93,7 @@ public class PlayerControllerRepair : MonoBehaviour
         // Repair skill
         if (Input.GetKeyDown(Interact))
         {
-            // todo check if wall health is full
+            
             if (isNearLeftWall)
             {
                 if (leftWall.GetComponent<WallHealth>().health < 500f)
