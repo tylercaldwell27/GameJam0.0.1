@@ -7,9 +7,10 @@ TagManager:
   - Speedy
   - Heavy
   - Generic
-  - Wall
   - DoorFirstFloor
   - DoorSecondFloor
+  - LeftWall
+  - RightWall
   layers:
   - Default
   - TransparentFX
