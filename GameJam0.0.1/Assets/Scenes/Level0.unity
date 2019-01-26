@@ -454,7 +454,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 8b95548627c9e204f845e90551ee4bd4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -849,6 +849,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4625117385240955496, guid: 5a3e7e0c49583524a926f392229aad19,
+        type: 3}
+      propertyPath: m_Name
+      value: Default Zombie
+      objectReference: {fileID: 0}
+    - target: {fileID: 4625117385240955496, guid: 5a3e7e0c49583524a926f392229aad19,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8324833825245885099, guid: 5a3e7e0c49583524a926f392229aad19,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -902,16 +912,6 @@ PrefabInstance:
     - target: {fileID: 8324833825245885099, guid: 5a3e7e0c49583524a926f392229aad19,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4625117385240955496, guid: 5a3e7e0c49583524a926f392229aad19,
-        type: 3}
-      propertyPath: m_Name
-      value: Default Zombie
-      objectReference: {fileID: 0}
-    - target: {fileID: 4625117385240955496, guid: 5a3e7e0c49583524a926f392229aad19,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1395,7 +1395,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1336256006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1441,6 +1441,7 @@ MonoBehaviour:
   health: 100
   NextHit: 0
   attacked: 0
+  lives: 4
   enemy: {fileID: 3530772853048743814, guid: 5a3e7e0c49583524a926f392229aad19, type: 3}
 --- !u!212 &1336256008
 SpriteRenderer:
@@ -1812,6 +1813,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4625117385240955496, guid: 5a3e7e0c49583524a926f392229aad19,
+        type: 3}
+      propertyPath: m_Name
+      value: Default Zombie (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 8324833825245885099, guid: 5a3e7e0c49583524a926f392229aad19,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1866,11 +1872,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4625117385240955496, guid: 5a3e7e0c49583524a926f392229aad19,
-        type: 3}
-      propertyPath: m_Name
-      value: Default Zombie (1)
       objectReference: {fileID: 0}
     - target: {fileID: 7693210465856935698, guid: 5a3e7e0c49583524a926f392229aad19,
         type: 3}
@@ -1933,31 +1934,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 8444235596976330618, guid: 521a64b3dc0f36a418fff38f022c5381,
-        type: 3}
-      propertyPath: wall
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8444235596976330618, guid: 521a64b3dc0f36a418fff38f022c5381,
-        type: 3}
-      propertyPath: repairCoolDownTime
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8444235596976330618, guid: 521a64b3dc0f36a418fff38f022c5381,
-        type: 3}
-      propertyPath: isRepairing
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8444235596976330618, guid: 521a64b3dc0f36a418fff38f022c5381,
-        type: 3}
-      propertyPath: Interact
-      value: 102
-      objectReference: {fileID: 0}
-    - target: {fileID: 8444235596976330621, guid: 521a64b3dc0f36a418fff38f022c5381,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 8444235596976330620, guid: 521a64b3dc0f36a418fff38f022c5381,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2012,6 +1988,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8444235596976330621, guid: 521a64b3dc0f36a418fff38f022c5381,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6108181825246943420, guid: 521a64b3dc0f36a418fff38f022c5381,
+        type: 3}
+      propertyPath: attacked
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8444235596976330618, guid: 521a64b3dc0f36a418fff38f022c5381,
+        type: 3}
+      propertyPath: wall
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8444235596976330618, guid: 521a64b3dc0f36a418fff38f022c5381,
+        type: 3}
+      propertyPath: repairCoolDownTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8444235596976330618, guid: 521a64b3dc0f36a418fff38f022c5381,
+        type: 3}
+      propertyPath: isRepairing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8444235596976330618, guid: 521a64b3dc0f36a418fff38f022c5381,
+        type: 3}
+      propertyPath: Interact
+      value: 102
+      objectReference: {fileID: 0}
+    - target: {fileID: 8444235596976330619, guid: 521a64b3dc0f36a418fff38f022c5381,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 521a64b3dc0f36a418fff38f022c5381, type: 3}

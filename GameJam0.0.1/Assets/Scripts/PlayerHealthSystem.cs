@@ -7,6 +7,7 @@ public class PlayerHealthSystem : MonoBehaviour
     public float health;
     public float NextHit = 0.0f;
     public bool attacked = false;
+    public float lives = 4;
     public EnemyHealthSystem enemy;
 
 
@@ -29,13 +30,23 @@ public class PlayerHealthSystem : MonoBehaviour
 
     }
 
-    void OnCollisionStay2D(Collision2D other)
+    void OnCollisionEnter2D(Collision2D other)
     {
 
         // if the player has hit the enemy
         if (other.gameObject.tag == "Generic")
         {
             attacked = true;
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D other)
+    {
+
+        // if the player has hit the enemy
+        if (other.gameObject.tag == "Generic")
+        {
+            attacked = false;
         }
     }
 
