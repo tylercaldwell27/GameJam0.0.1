@@ -32,8 +32,8 @@ public class PlayerControllerRepair : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         wall = GetComponent<Transform>();
-        doorUpstairs = GetComponent<Transform>();
-        doorDownstairs = GetComponent<Transform>();
+        //doorUpstairs = GetComponent<Transform>();
+        //doorDownstairs = GetComponent<Transform>();
         
     }
 
@@ -54,24 +54,37 @@ public class PlayerControllerRepair : MonoBehaviour
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
+
         if (Input.GetKeyDown(Up))
         {
             if (atSecondFloorDoor)
             {
                 //player goes to 1st floor
-                this.transform.position = doorDownstairs.position;
+                //this.transform.position = doorDownstairs.position;
+                Debug.Log("Player is at 2nd Floor Door");
             }
             
             if (atFirstFloorDoor)
             {
                 // player goes to 2nd floor
-                this.transform.position = doorUpstairs.position;
+                //this.transform.position = doorUpstairs.position;
+                Debug.Log("Player is at 1st Floor Door");
             }
 
-            if(!atFirstFloorDoor || !atSecondFloorDoor)
+            if(!atFirstFloorDoor)
             {
-                Debug.LogWarning("Player is not at any doors");
+                Debug.LogWarning("Player is NOT at First Floor door");
             }
+            if (!atSecondFloorDoor)
+            {
+                Debug.LogWarning("Player is NOT at Second Floor door");
+            }
+            if (!atFirstFloorDoor && !atSecondFloorDoor)
+            {
+                Debug.LogWarning("Player is NOT at  door");
+            }
+
+
 
         }
 

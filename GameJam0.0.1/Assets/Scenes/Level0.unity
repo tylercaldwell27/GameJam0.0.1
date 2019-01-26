@@ -284,7 +284,7 @@ PrefabInstance:
     - target: {fileID: 6626078118872171677, guid: cb50be213aa3d7e4aa4fc78a3955ff1c,
         type: 3}
       propertyPath: m_Name
-      value: DoorFirstDoor
+      value: DoorFirstFloor
       objectReference: {fileID: 0}
     - target: {fileID: 6626078118872171677, guid: cb50be213aa3d7e4aa4fc78a3955ff1c,
         type: 3}
@@ -294,12 +294,12 @@ PrefabInstance:
     - target: {fileID: 6626078118872171667, guid: cb50be213aa3d7e4aa4fc78a3955ff1c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.196137
+      value: -0.75
       objectReference: {fileID: 0}
     - target: {fileID: 6626078118872171667, guid: cb50be213aa3d7e4aa4fc78a3955ff1c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.07
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6626078118872171667, guid: cb50be213aa3d7e4aa4fc78a3955ff1c,
         type: 3}
@@ -569,8 +569,8 @@ MonoBehaviour:
   moveSpeed: 5
   atSecondFloorDoor: 0
   atFirstFloorDoor: 0
-  doorUp: {fileID: 0}
-  doorDown: {fileID: 0}
+  doorUpstairs: {fileID: 0}
+  doorDownstairs: {fileID: 0}
   repairCoolDownTime: 0
   isRepairing: 0
   isNearAWall: 0
@@ -776,8 +776,8 @@ MonoBehaviour:
   moveSpeed: 5
   atSecondFloorDoor: 0
   atFirstFloorDoor: 0
-  doorUp: {fileID: 0}
-  doorDown: {fileID: 0}
+  doorUpstairs: {fileID: 563597326}
+  doorDownstairs: {fileID: 1923124524}
   repairCoolDownTime: 3
   isRepairing: 0
   isNearAWall: 0
@@ -1079,7 +1079,7 @@ PrefabInstance:
     - target: {fileID: 6626078118872171677, guid: cb50be213aa3d7e4aa4fc78a3955ff1c,
         type: 3}
       propertyPath: m_Name
-      value: DoorSecondDoor
+      value: DoorSecondFloor
       objectReference: {fileID: 0}
     - target: {fileID: 6626078118872171677, guid: cb50be213aa3d7e4aa4fc78a3955ff1c,
         type: 3}
@@ -1089,12 +1089,12 @@ PrefabInstance:
     - target: {fileID: 6626078118872171667, guid: cb50be213aa3d7e4aa4fc78a3955ff1c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.196137
+      value: 5.57
       objectReference: {fileID: 0}
     - target: {fileID: 6626078118872171667, guid: cb50be213aa3d7e4aa4fc78a3955ff1c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.07
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6626078118872171667, guid: cb50be213aa3d7e4aa4fc78a3955ff1c,
         type: 3}
