@@ -8,7 +8,7 @@ public class EnemyHealthSystem : MonoBehaviour
     public float health;
     public float attackDmg;
     public float AttackSpeed = 0.5f;
-    Gun gunScript = new Gun();
+
 
 
     public void DeductHealth(float deductHealth)
