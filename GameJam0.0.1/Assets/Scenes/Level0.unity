@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 694210370}
   m_Layer: 0
   m_Name: thanos_head
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -229,11 +229,16 @@ MonoBehaviour:
   moveSpeed: 5
   atSecondFloorDoor: 0
   atFirstFloorDoor: 0
+  atWindow: 0
   doorUp: {fileID: 0}
   doorDown: {fileID: 0}
+  repairCoolDownTime: 0
+  isRepairing: 0
+  isNearAWall: 0
   Left: 97
   Right: 100
   Up: 119
+  Interact: 0
 --- !u!50 &694210370
 Rigidbody2D:
   serializedVersion: 4
