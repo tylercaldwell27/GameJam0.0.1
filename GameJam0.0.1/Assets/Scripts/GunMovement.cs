@@ -5,7 +5,7 @@ using UnityEngine;
 public class GunMovement : MonoBehaviour
 {
     public Transform player;
-    public int rotationOffset = 90;
+    public int rotationOffset = 0;
     // Update is called once per frame
     private void Start()
     {
