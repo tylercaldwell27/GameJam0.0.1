@@ -149,20 +149,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 672457987}
     m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: genericEnemy
-      value: 
-      objectReference: {fileID: 8324833825245885099, guid: 5a3e7e0c49583524a926f392229aad19,
-        type: 3}
     - target: {fileID: 6035229627530613532, guid: 8b41cd85bfb8fa941a769ca84cb5eb0d,
         type: 3}
       propertyPath: m_Name
-      value: RightWall
+      value: Wall (1)
       objectReference: {fileID: 0}
     - target: {fileID: 6035229627530613532, guid: 8b41cd85bfb8fa941a769ca84cb5eb0d,
         type: 3}
       propertyPath: m_TagString
-      value: RightWall
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 6035229628106486634, guid: 8b41cd85bfb8fa941a769ca84cb5eb0d,
         type: 3}
@@ -356,7 +351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  rotationOffset: 0
+  rotationOffset: 180
 --- !u!212 &495744872
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -648,7 +643,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &672457987
 Transform:
   m_ObjectHideFlags: 0
@@ -1013,8 +1008,8 @@ MonoBehaviour:
   repairCoolDownTime: 3
   isNearLeftWall: 0
   isNearRightWall: 0
-  leftWall: {fileID: 1366560771}
-  rightWall: {fileID: 286342424}
+  leftWall: {fileID: 0}
+  rightWall: {fileID: 0}
   Left: 97
   Right: 100
   Up: 119
@@ -1109,20 +1104,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 672457987}
     m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: genericEnemy
-      value: 
-      objectReference: {fileID: 8324833825245885099, guid: 5a3e7e0c49583524a926f392229aad19,
-        type: 3}
     - target: {fileID: 6035229627530613532, guid: 8b41cd85bfb8fa941a769ca84cb5eb0d,
         type: 3}
       propertyPath: m_Name
-      value: LeftWall
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 6035229627530613532, guid: 8b41cd85bfb8fa941a769ca84cb5eb0d,
         type: 3}
       propertyPath: m_TagString
-      value: LeftWall
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 6035229628106486634, guid: 8b41cd85bfb8fa941a769ca84cb5eb0d,
         type: 3}
@@ -1179,8 +1169,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b41cd85bfb8fa941a769ca84cb5eb0d, type: 3}
 --- !u!4 &1366560771 stripped
 Transform:
@@ -1203,7 +1192,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1630981681
 Transform:
   m_ObjectHideFlags: 0

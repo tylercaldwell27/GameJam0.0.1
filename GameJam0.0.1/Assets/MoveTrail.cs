@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class MoveTrail : MonoBehaviour
 {
-    
+    public int moveSpeed = 150;
     
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.left * Time.deltaTime);
-        Destroy(gameObject,5);
+        transform.Translate(Vector3.left * Time.deltaTime* moveSpeed);
+        Destroy(gameObject,2);
     }
 }
