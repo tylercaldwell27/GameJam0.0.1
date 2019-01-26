@@ -14,7 +14,7 @@ public class PlayerControllerRepair : MonoBehaviour
     public Transform doorUp;
     public Transform doorDown;
 
-    public float repairCoolDownTime;
+    public float repairCoolDownTime = 3f;
     [SerializeField] bool isRepairing = false;
 
     // Keys used to move player
@@ -67,18 +67,29 @@ public class PlayerControllerRepair : MonoBehaviour
             }
 
         }
+
+        // Repair skill
         if (Input.GetKeyDown(Interact))
         {
+            // todo check if wall health is full
             //start repair
             if (isRepairing)
             {
-
+                StartCoroutine("RepairCoolDown");
+                Repair();
             }
         }   
     }
 
-    IEnumerator Repair(float repairCoolDownTime)
+    IEnumerator RepairCoolDown()
     {
+        isRepairing = true;
         yield return new WaitForSeconds(repairCoolDownTime);
+        isRepairing = false;
+
+    }
+    public void Repair()
+    {
+        // add health to the wall
     }
 }
