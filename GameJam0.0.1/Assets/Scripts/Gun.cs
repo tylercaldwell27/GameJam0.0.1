@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿// coded by Tyler
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,7 +19,7 @@ public class Gun : MonoBehaviour
     void Awake()
     {
 
-        firePoint = transform.Find("FirePoint");
+        firePoint = transform.FindChild("FirePoint");
         if (firePoint == null)
         {
             Debug.LogError("No firePoint?");
@@ -50,20 +52,30 @@ public class Gun : MonoBehaviour
     }
     void Shoot()
     {
-        Debug.Log("test");
+       
         Vector2 mousePosition = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
         Vector2 firePointPosition = new Vector2(firePoint.position.x, firePoint.position.y);
         RaycastHit2D hit = Physics2D.Raycast(firePointPosition, mousePosition - firePointPosition, 100, whatToHit);
         Effect();
+        
         // Debug.DrawLine(firePointPosition, (mousePosition-firePointPosition)*100,Color.cyan);  
         if (hit.collider != null)
         {
-            Debug.Log("hit");
+            Debug.Log(hit.collider.tag);
+            
+            
+                
              // Debug.DrawLine(firePointPosition, hit.point, Color.red);
+        }
+        else
+        {
+            Debug.Log("miss");
         }
     }
 
-    void Effect()
+
+    
+        void Effect()
     {
         Instantiate(BulletTrailPrefab, firePoint.position, firePoint.rotation);
     }
