@@ -6,8 +6,12 @@ public class PlayerHealthSystem : MonoBehaviour
 {
     public float health;
     public float NextHit = 0.0f;
+    public bool attacked = false;
+    public EnemyFollow enemy;
+
+
     //public float AttackSpeed;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,26 +21,31 @@ public class PlayerHealthSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (attacked)
+        {
+            TakeDamage();
+            Debug.Log(health);
+        }
 
     }
 
-    void OnCollisionStay(Collision other)
+    void OnCollisionStay2D(Collision2D other)
     {
 
         // if the player has hit the enemy
-        if (other.gameObject.tag == "Default")
+        if (other.gameObject.tag == "Generic")
         {
-            if (Time.time > NextHit)
-            {
+            attacked = true;
+        }
+    }
 
-                NextHit = Time.time + 1;
-                int damagePlayer = 10;// the ammont of damge the enemy does to the player
-                health = health - damagePlayer;//subtracts the amoutn of damage done from the players health
-                                               // Debug.Log(health);// prints the remaining health to the screen.
-                Debug.LogWarning("Health = " + health);
-
-
-            }
+    public void TakeDamage()
+    {
+        if (Time.time > NextHit)
+        {
+            NextHit = Time.time + enemy.AttackSpeed;
+            int damagePlayer = 10;// the ammont of damge the enemy does to the player
+            health = health - damagePlayer;//subtracts the amoutn of damage done from the players health
         }
     }
 }

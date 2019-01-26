@@ -97,6 +97,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   NextHit: 0
+  attacked: 0
+  enemy: {fileID: 6172174558722714232, guid: 5a3e7e0c49583524a926f392229aad19, type: 3}
 --- !u!114 &8444235596976330618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,6 +119,8 @@ MonoBehaviour:
   doorDown: {fileID: 0}
   repairCoolDownTime: 0
   isRepairing: 0
+  isNearAWall: 0
+  wall: {fileID: 0}
   Left: 97
   Right: 100
   Up: 119
