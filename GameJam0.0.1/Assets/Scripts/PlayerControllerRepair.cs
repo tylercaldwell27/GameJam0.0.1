@@ -17,7 +17,7 @@ public class PlayerControllerRepair : MonoBehaviour
     public float repairCoolDownTime = 3f;
     [SerializeField] bool isRepairing = false;
     [SerializeField] bool isNearAWall = false;
-    WallHealth wall;
+    public WallHealth wall;
 
     // Keys used to move player
     public KeyCode Left;
@@ -32,6 +32,7 @@ public class PlayerControllerRepair : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        wall.GetComponent<Transform>();
     }
 
     // Update is called once per frame

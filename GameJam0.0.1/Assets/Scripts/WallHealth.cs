@@ -5,12 +5,12 @@ using UnityEngine;
 public class WallHealth : MonoBehaviour
 {
     public float health = 500.0f;
-    EnemyHealthSystem enemy;
+    public EnemyHealthSystem enemy;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        enemy.GetComponent<Transform>();
     }
 
     // Update is called once per frame

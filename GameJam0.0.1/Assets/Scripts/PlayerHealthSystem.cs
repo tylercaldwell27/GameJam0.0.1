@@ -29,7 +29,7 @@ public class PlayerHealthSystem : MonoBehaviour
             if (Time.time > NextHit)
             {
 
-                NextHit = Time.time + ;
+                NextHit = Time.time + 1;
                 int damagePlayer = 10;// the ammont of damge the enemy does to the player
                 health = health - damagePlayer;//subtracts the amoutn of damage done from the players health
                                                // Debug.Log(health);// prints the remaining health to the screen.
