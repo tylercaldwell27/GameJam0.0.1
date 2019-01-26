@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour {
     // Movement of the player
     public float moveSpeed;
     public float upforce;
-    private bool moving;
+    //private bool moving;
 
     // Keys used to move player
     public KeyCode Left;
@@ -25,10 +25,10 @@ public class PlayerController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (moving)
-        {
-            moveSpeed -= Time.deltaTime;
-        }
+        //if (moving)
+        //{
+        //    moveSpeed -= Time.deltaTime;
+        //}
 
 
         if (Input.GetKey(Left))

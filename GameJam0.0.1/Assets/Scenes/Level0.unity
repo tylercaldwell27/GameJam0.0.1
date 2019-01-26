@@ -226,12 +226,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9efa7d1c31c0c804eab842d4aac555cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
-  upforce: 0
+  moveSpeed: 5
+  atSecondFloorDoor: 0
+  atFirstFloorDoor: 0
+  doorUp: {fileID: 0}
+  doorDown: {fileID: 0}
   Left: 97
   Right: 100
-  Up: 0
-  Down: 0
+  Up: 119
 --- !u!50 &694210370
 Rigidbody2D:
   serializedVersion: 4

@@ -6,16 +6,22 @@ using UnityEngine;
 public class PlayerControllerRepair : MonoBehaviour
 {
     // Movement of the player
-    public float moveSpeed;
-    [SerializeField] bool atDoorUp;
-    [SerializeField] bool atDoorDown;
+    public float moveSpeed = 5.0f;
+
+    [SerializeField] bool atSecondFloorDoor = false;
+    [SerializeField] bool atFirstFloorDoor = false;
+    [SerializeField] bool atWindow = false;
     public Transform doorUp;
     public Transform doorDown;
+
+    public float repairCoolDownTime;
+    [SerializeField] bool isRepairing = false;
 
     // Keys used to move player
     public KeyCode Left;
     public KeyCode Right;
     public KeyCode Up;
+    public KeyCode Interact;
 
     // Players Body
     private Rigidbody2D rb;
@@ -30,7 +36,7 @@ public class PlayerControllerRepair : MonoBehaviour
     void Update()
     {
 
-
+        //Input
         if (Input.GetKey(Left))
         {
             rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
@@ -43,18 +49,36 @@ public class PlayerControllerRepair : MonoBehaviour
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
-
-        if (Input.GetKey(Up))
+        if (Input.GetKeyDown(Up))
         {
-            if (atDoorUp)
+            if (atSecondFloorDoor)
             {
                 // player goes to 1st floor
             }
-            if (atDoorDown)
+            
+            if (atFirstFloorDoor)
             {
                 // player goes to 2nd floor
             }
-        }
 
+            if(!atFirstFloorDoor || !atSecondFloorDoor)
+            {
+                Debug.LogWarning("Player is at the door");
+            }
+
+        }
+        if (Input.GetKeyDown(Interact))
+        {
+            //start repair
+            if (isRepairing)
+            {
+
+            }
+        }   
+    }
+
+    IEnumerator Repair(float repairCoolDownTime)
+    {
+        yield return new WaitForSeconds(repairCoolDownTime);
     }
 }
