@@ -1,4 +1,5 @@
-﻿// coded by Tyler
+﻿
+// coded by Tyler
 
 using System.Collections;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ public class Gun : MonoBehaviour
 
     float timeToFire = 0;
     Transform firePoint;
-
+    EnemyHealthSystem enemyDamage = new EnemyHealthSystem();
     // Start is called before the first frame update
     void Awake()
     {
@@ -52,20 +53,25 @@ public class Gun : MonoBehaviour
     }
     void Shoot()
     {
-       
+
         Vector2 mousePosition = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
         Vector2 firePointPosition = new Vector2(firePoint.position.x, firePoint.position.y);
         RaycastHit2D hit = Physics2D.Raycast(firePointPosition, mousePosition - firePointPosition, 100, whatToHit);
         Effect();
-        
+
         // Debug.DrawLine(firePointPosition, (mousePosition-firePointPosition)*100,Color.cyan);  
         if (hit.collider != null)
         {
             Debug.Log(hit.collider.tag);
-            
-            
-                
-             // Debug.DrawLine(firePointPosition, hit.point, Color.red);
+
+            if (hit.collider.tag == "Generic")
+            {
+                EnemyHealthSystem enemyHealthScript = hit.transform.GetComponent<EnemyHealthSystem>();
+                enemyHealthScript.DeductHealth(Damage);
+            }
+
+
+            // Debug.DrawLine(firePointPosition, hit.point, Color.red);
         }
         else
         {
@@ -74,8 +80,8 @@ public class Gun : MonoBehaviour
     }
 
 
-    
-        void Effect()
+
+    void Effect()
     {
         Instantiate(BulletTrailPrefab, firePoint.position, firePoint.rotation);
     }
