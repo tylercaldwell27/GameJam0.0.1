@@ -22,10 +22,17 @@ public class PlayerHealthSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (attacked)
+        if (attacked && this.health > 0.0f)
         {
             TakeDamage();
             Debug.Log(health);
+        }
+        else if (this.health <= 0)
+        {
+            this.gameObject.SetActive(false);
+            //teleport to respawn
+            //change sprite
+            // set active to false
         }
 
     }
@@ -55,8 +62,7 @@ public class PlayerHealthSystem : MonoBehaviour
         if (Time.time > NextHit)
         {
             NextHit = Time.time + enemy.AttackSpeed;
-            int damagePlayer = 10;// the ammont of damge the enemy does to the player
-            health = health - damagePlayer;//subtracts the amoutn of damage done from the players health
+            health = health - enemy.attackDmg;//subtracts the amoutn of damage done from the players health
         }
     }
 }
