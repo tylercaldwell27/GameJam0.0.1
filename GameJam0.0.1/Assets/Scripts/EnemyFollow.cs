@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class EnemyFollow : MonoBehaviour
 {
-    public float speed=5;
-    public float AttackSpeed=5; 
+    public float speed = 5f;
+     
     private Transform target;
 
 

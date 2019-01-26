@@ -10,29 +10,31 @@ public class PlayerControllerRepair : MonoBehaviour
 
     [SerializeField] bool atSecondFloorDoor = false;
     [SerializeField] bool atFirstFloorDoor = false;
-    [SerializeField] bool atWindow = false;
-    public Transform doorUp;
-    public Transform doorDown;
+    public Transform doorUpstairs;
+    public Transform doorDownstairs;
 
     public float repairCoolDownTime = 3f;
     [SerializeField] bool isRepairing = false;
     [SerializeField] bool isNearAWall = false;
-    public WallHealth wall;
+    public Transform wall;
 
-    // Keys used to move player
+    // Custom Keys used to move player
     public KeyCode Left;
     public KeyCode Right;
     public KeyCode Up;
     public KeyCode Interact;
 
     // Players Body
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
 
     // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        wall.GetComponent<Transform>();
+        wall = GetComponent<Transform>();
+        doorUpstairs = GetComponent<Transform>();
+        doorDownstairs = GetComponent<Transform>();
+        
     }
 
     // Update is called once per frame
@@ -56,17 +58,19 @@ public class PlayerControllerRepair : MonoBehaviour
         {
             if (atSecondFloorDoor)
             {
-                // player goes to 1st floor
+                //player goes to 1st floor
+                this.transform.position = doorDownstairs.position;
             }
             
             if (atFirstFloorDoor)
             {
                 // player goes to 2nd floor
+                this.transform.position = doorUpstairs.position;
             }
 
             if(!atFirstFloorDoor || !atSecondFloorDoor)
             {
-                Debug.LogWarning("Player is at the door");
+                Debug.LogWarning("Player is not at any doors");
             }
 
         }
@@ -77,12 +81,17 @@ public class PlayerControllerRepair : MonoBehaviour
             // todo check if wall health is full
             if (isNearAWall)
             {
-                if (wall.health < 500 && wall.health > 0)
+                if (wall.GetComponent<WallHealth>().health < 500 && wall.GetComponent<WallHealth>().health > 0)
                 {
                     StartCoroutine("RepairCoolDown");
                     Repair();
                 }
             }
+            else
+            {
+                Debug.LogWarning("Not near a wall");
+            }
+
         }   
     }
 
@@ -96,14 +105,44 @@ public class PlayerControllerRepair : MonoBehaviour
     void Repair()
     {
         // add health to the wall
-        wall.health = 100.0f;
+        wall.GetComponent<WallHealth>().health = 100.0f;
     }
 
-    private void OnCollisionStay2D(Collision2D col)
+    private void OnCollisionEnter2D(Collision2D col)
     {
         if(col.gameObject.tag == "Wall")
         {
             isNearAWall = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D col)
+    {
+        isNearAWall = false;
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "DoorFirstFloor")
+        {
+            atFirstFloorDoor = true;
+        }
+        if (col.gameObject.tag == "DoorSecondFloor")
+        {
+            atSecondFloorDoor = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "DoorFirstFloor")
+        {
+            atFirstFloorDoor = false;
+        }
+        if (col.gameObject.tag == "DoorSecondFloor")
+        {
+            atSecondFloorDoor = false;
         }
     }
 }

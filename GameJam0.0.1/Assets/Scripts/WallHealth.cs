@@ -5,12 +5,12 @@ using UnityEngine;
 public class WallHealth : MonoBehaviour
 {
     public float health = 500.0f;
-    public EnemyHealthSystem enemy;
+    public Transform genericEnemy;
 
     // Start is called before the first frame update
     void Start()
     {
-        enemy.GetComponent<Transform>();
+        genericEnemy = GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -27,7 +27,7 @@ public class WallHealth : MonoBehaviour
     {
         if (collision.gameObject.tag == "Generic")
         {
-            health -= enemy.attackDmg;
+            //health -= enemy.attackDmg;
         }
     }
 }

@@ -7,7 +7,7 @@ public class PlayerHealthSystem : MonoBehaviour
     public float health;
     public float NextHit = 0.0f;
     public bool attacked = false;
-    public EnemyFollow enemy;
+    public EnemyHealthSystem enemy;
 
 
     //public float AttackSpeed;

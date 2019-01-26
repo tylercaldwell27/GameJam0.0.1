@@ -6,9 +6,10 @@ TagManager:
   tags:
   - Speedy
   - Heavy
-  - Default
   - Generic
   - Wall
+  - DoorFirstFloor
+  - DoorSecondFloor
   layers:
   - Default
   - TransparentFX

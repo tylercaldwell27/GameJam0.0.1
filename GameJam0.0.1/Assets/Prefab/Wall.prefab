@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5081889104914199505
+--- !u!1 &6035229627530613532
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7446299543864723013}
-  - component: {fileID: 6214803465886270462}
-  - component: {fileID: 8542791847620440214}
+  - component: {fileID: 6035229628106486634}
+  - component: {fileID: 6035229627530613534}
+  - component: {fileID: 6035229627530613533}
+  - component: {fileID: 6035229627530613535}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -18,41 +19,41 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7446299543864723013
+--- !u!4 &6035229628106486634
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5081889104914199505}
+  m_GameObject: {fileID: 6035229627530613532}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.90655047, y: -0.48413798, z: -0.032118727}
+  m_LocalPosition: {x: -2.33, y: -0.48413798, z: -0.032118727}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6214803465886270462
+--- !u!114 &6035229627530613534
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5081889104914199505}
+  m_GameObject: {fileID: 6035229627530613532}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f194a2ee45e6574aaeb1e35fe57108b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 500
-  enemy: {fileID: 0}
---- !u!61 &8542791847620440214
+  genericEnemy: {fileID: 0}
+--- !u!61 &6035229627530613533
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5081889104914199505}
+  m_GameObject: {fileID: 6035229627530613532}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -72,3 +73,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6035229627530613535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6035229627530613532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f194a2ee45e6574aaeb1e35fe57108b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 500
+  genericEnemy: {fileID: 8324833825245885099, guid: 5a3e7e0c49583524a926f392229aad19,
+    type: 3}
