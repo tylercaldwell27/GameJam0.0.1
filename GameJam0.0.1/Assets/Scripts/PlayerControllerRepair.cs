@@ -102,8 +102,8 @@ public class PlayerControllerRepair : MonoBehaviour
             {
                 if (rightWall.GetComponent<WallHealth>().health < 500f)
                 {
-                    StartCoroutine("RepairCoolDown");
-                    Repair(isNearLeftWall, isNearRightWall);
+                    StartCoroutine(RepairCoolDown());
+                    //Repair(isNearLeftWall, isNearRightWall);
                 }
             }
             else { Debug.LogWarning("Not near a wall"); }
@@ -115,6 +115,7 @@ public class PlayerControllerRepair : MonoBehaviour
     IEnumerator RepairCoolDown()
     {
         yield return new WaitForSeconds(repairCoolDownTime);
+        Repair(isNearLeftWall, isNearRightWall);
     }
     void Repair(bool lWall, bool rWall)
     {

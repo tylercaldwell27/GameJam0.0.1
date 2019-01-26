@@ -1005,7 +1005,7 @@ MonoBehaviour:
   atFirstFloorDoor: 0
   doorUpstairs: {fileID: 563597326}
   doorDownstairs: {fileID: 1923124524}
-  repairCoolDownTime: 3
+  repairCoolDownTime: 10
   isNearLeftWall: 0
   isNearRightWall: 0
   leftWall: {fileID: 0}
@@ -1226,26 +1226,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 8444235596976330618, guid: 521a64b3dc0f36a418fff38f022c5381,
-        type: 3}
-      propertyPath: wall
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8444235596976330618, guid: 521a64b3dc0f36a418fff38f022c5381,
-        type: 3}
-      propertyPath: repairCoolDownTime
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8444235596976330618, guid: 521a64b3dc0f36a418fff38f022c5381,
-        type: 3}
-      propertyPath: isRepairing
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8444235596976330618, guid: 521a64b3dc0f36a418fff38f022c5381,
-        type: 3}
-      propertyPath: Interact
-      value: 102
-      objectReference: {fileID: 0}
     - target: {fileID: 8444235596976330620, guid: 521a64b3dc0f36a418fff38f022c5381,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1299,6 +1279,36 @@ PrefabInstance:
     - target: {fileID: 8444235596976330620, guid: 521a64b3dc0f36a418fff38f022c5381,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8444235596976330618, guid: 521a64b3dc0f36a418fff38f022c5381,
+        type: 3}
+      propertyPath: wall
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8444235596976330618, guid: 521a64b3dc0f36a418fff38f022c5381,
+        type: 3}
+      propertyPath: repairCoolDownTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8444235596976330618, guid: 521a64b3dc0f36a418fff38f022c5381,
+        type: 3}
+      propertyPath: isRepairing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8444235596976330618, guid: 521a64b3dc0f36a418fff38f022c5381,
+        type: 3}
+      propertyPath: Interact
+      value: 102
+      objectReference: {fileID: 0}
+    - target: {fileID: 8444235596976330618, guid: 521a64b3dc0f36a418fff38f022c5381,
+        type: 3}
+      propertyPath: isNearRightWall
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8444235596976330618, guid: 521a64b3dc0f36a418fff38f022c5381,
+        type: 3}
+      propertyPath: isNearLeftWall
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
