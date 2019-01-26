@@ -15,8 +15,9 @@ public class PlayerControllerRepair : MonoBehaviour
     public Transform doorDown;
 
     public float repairCoolDownTime = 3f;
-    [SerializeField] bool isRepairing;
+    [SerializeField] bool isRepairing = false;
     [SerializeField] bool isNearAWall = false;
+    WallHealth wall;
 
     // Keys used to move player
     public KeyCode Left;
@@ -73,11 +74,13 @@ public class PlayerControllerRepair : MonoBehaviour
         if (Input.GetKeyDown(Interact))
         {
             // todo check if wall health is full
-            //start repair
-            if (isRepairing)
+            if (isNearAWall)
             {
-                StartCoroutine("RepairCoolDown");
-                Repair();
+                if (wall.health < 500 && wall.health > 0)
+                {
+                    StartCoroutine("RepairCoolDown");
+                    Repair();
+                }
             }
         }   
     }
@@ -89,9 +92,10 @@ public class PlayerControllerRepair : MonoBehaviour
         isRepairing = false;
 
     }
-    public void Repair()
+    void Repair()
     {
         // add health to the wall
+        wall.health = 100.0f;
     }
 
     private void OnCollisionStay2D(Collision2D col)
@@ -99,9 +103,6 @@ public class PlayerControllerRepair : MonoBehaviour
         if(col.gameObject.tag == "Wall")
         {
             isNearAWall = true;
-        }
-        if (isNearAWall)
-        {
         }
     }
 }

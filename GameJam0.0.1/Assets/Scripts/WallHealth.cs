@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class WallHealth : MonoBehaviour
 {
-    public float wallHealth;
+    public float health = 500.0f;
+    EnemyHealthSystem enemy;
 
     // Start is called before the first frame update
     void Start()
@@ -15,14 +16,18 @@ public class WallHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(health <= 0.0f)
+        {
+            Destroy(this);
+            //add wall crumbling anim
+        }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.tag == "Default")
+        if (collision.gameObject.tag == "Generic")
         {
-            wallHealth -= 
+            health -= enemy.attackDmg;
         }
     }
 }
