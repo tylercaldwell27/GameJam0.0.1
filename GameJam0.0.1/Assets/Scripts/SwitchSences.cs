@@ -15,11 +15,10 @@ public class SwitchSences : MonoBehaviour
         Application.Quit();
     }
 
-    public void Back()
-    {
+    public void Back(){
         //gets the active scene from the buildIndex and plays the next scene after
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
 
     }
-
+    
 }
