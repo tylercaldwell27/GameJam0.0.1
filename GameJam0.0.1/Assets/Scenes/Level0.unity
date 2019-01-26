@@ -1091,8 +1091,8 @@ MonoBehaviour:
   repairCoolDownTime: 3
   isNearLeftWall: 0
   isNearRightWall: 0
-  leftWall: {fileID: 0}
-  rightWall: {fileID: 0}
+  leftWall: {fileID: 1366560771}
+  rightWall: {fileID: 1219259461}
   Left: 97
   Right: 100
   Up: 119
