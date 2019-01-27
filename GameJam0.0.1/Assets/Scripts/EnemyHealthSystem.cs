@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealthSystem : MonoBehaviour
 {
@@ -15,34 +16,35 @@ public class EnemyHealthSystem : MonoBehaviour
 
     private float flashCounter;
 
-    private Renderer renderer;
+    Renderer render;
     private Color defaultColor;
-
+    ScoreScript sc;
     void Start()
     {
+        
         currentHealth = health;
-        renderer = GetComponent<Renderer>();
-        defaultColor = renderer.material.GetColor("_Color");
+        render = GetComponent<Renderer>();
+        defaultColor = render.material.GetColor("_Color");
     }
 
-    void Update()
-    {
+     public void Update()
+     {
         if (health <= 0)
         {
-
+            
             EnemyDead();
         }
-
+        
 
         if (flashCounter > 0.0f)
         {
             flashCounter -= Time.deltaTime;
             if (flashCounter <= 0.0f)
             {
-                renderer.material.SetColor("_Color", defaultColor);
+                render.material.SetColor("_Color", defaultColor);
             }
         }
-    }
+     }
 
     public void DeductHealth(float deductHealth)
     {
@@ -50,11 +52,14 @@ public class EnemyHealthSystem : MonoBehaviour
         
         health -= attackDmg;
         flashCounter = flashLength;
-        renderer.material.SetColor("_Color", Color.red);
+        render.material.SetColor("_Color", Color.red);
     }
 
     void EnemyDead()
     {
+        ScoreScript.scoreValue += 10;
         Destroy(gameObject);
     }
-}
+    
+      
+}    
