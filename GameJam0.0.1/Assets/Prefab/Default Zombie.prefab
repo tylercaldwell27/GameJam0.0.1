@@ -113,8 +113,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 90
+  currentHealth: 0
   attackDmg: 30
-  AttackSpeed: 0.5
+  AttackSpeed: 1
+  flashLength: 0.1
 --- !u!50 &6262911055762531560
 Rigidbody2D:
   serializedVersion: 4

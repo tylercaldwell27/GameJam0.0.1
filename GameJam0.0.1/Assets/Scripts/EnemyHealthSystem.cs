@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyHealthSystem : MonoBehaviour
 {
     public float health;
+    public float currentHealth;
     public float attackDmg;
     public float AttackSpeed;
 
@@ -19,12 +20,20 @@ public class EnemyHealthSystem : MonoBehaviour
 
     void Start()
     {
+        currentHealth = health;
         renderer = GetComponent<Renderer>();
         defaultColor = renderer.material.GetColor("_Color");
     }
 
     void Update()
     {
+        if (health <= 0)
+        {
+
+            EnemyDead();
+        }
+
+
         if (flashCounter > 0.0f)
         {
             flashCounter -= Time.deltaTime;
@@ -37,14 +46,8 @@ public class EnemyHealthSystem : MonoBehaviour
 
     public void DeductHealth(float deductHealth)
     {
-        health -= deductHealth;
         Debug.Log(health);
-        if (health <= 0)
-        {
-
-            EnemyDead();
-        }
-
+        
         health -= attackDmg;
         flashCounter = flashLength;
         renderer.material.SetColor("_Color", Color.red);

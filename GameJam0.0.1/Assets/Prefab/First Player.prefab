@@ -132,6 +132,15 @@ MonoBehaviour:
   attacked: 0
   lives: 4
   enemy: {fileID: 3530772853048743814, guid: 5a3e7e0c49583524a926f392229aad19, type: 3}
+  SecondLive: {fileID: 0}
+  ThirdLive: {fileID: 0}
+  ForthLive: {fileID: 0}
+  RespawnPoint: {fileID: 0}
+  player: {fileID: 0}
+  wife: {fileID: 0}
+  boah: {fileID: 0}
+  girl: {fileID: 0}
+  flashLength: 0.1
 --- !u!114 &7115333071081012394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +158,15 @@ MonoBehaviour:
   attacked: 0
   lives: 4
   enemy: {fileID: 0}
+  SecondLive: {fileID: 0}
+  ThirdLive: {fileID: 0}
+  ForthLive: {fileID: 0}
+  RespawnPoint: {fileID: 0}
+  player: {fileID: 0}
+  wife: {fileID: 0}
+  boah: {fileID: 0}
+  girl: {fileID: 0}
+  flashLength: 0
 --- !u!50 &7115333071081012397
 Rigidbody2D:
   serializedVersion: 4

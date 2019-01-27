@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1765063794}
   - component: {fileID: 1765063793}
   - component: {fileID: 2226170456955851721}
-  - component: {fileID: 3315995967776110416}
+  - component: {fileID: 8102060051617946517}
   m_Layer: 11
   m_Name: Heavy Zombie
   m_TagString: Generic
@@ -113,8 +113,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 150
+  currentHealth: 0
   attackDmg: 50
-  AttackSpeed: 2
+  AttackSpeed: 1.5
+  flashLength: 0.1
 --- !u!50 &2226170456955851721
 Rigidbody2D:
   serializedVersion: 4
@@ -136,8 +138,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &3315995967776110416
-CapsuleCollider2D:
+--- !u!61 &8102060051617946517
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -149,6 +151,16 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.26, y: 0}
-  m_Size: {x: 21.810003, y: 30.870005}
-  m_Direction: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 21.810001, y: 30.87}
+    newSize: {x: 0.01, y: 0.01}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 21.810001, y: 30.87}
+  m_EdgeRadius: 0
