@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class EnemyFollow : MonoBehaviour
 {
     public float speed = 5f;
-     
+    public float temp;
     private Transform target;
 
 
@@ -15,6 +15,7 @@ public class EnemyFollow : MonoBehaviour
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        temp = speed;
     }
 
     // Update is called once per frame
@@ -22,5 +23,24 @@ public class EnemyFollow : MonoBehaviour
     {
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
     }
-   
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+
+        // if the player has hit the enemy
+        if (other.gameObject.tag == "LeftWall" || other.gameObject.tag == "RightWall")
+        {
+            speed = 0;
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D other)
+    {
+
+        // if the player has hit the enemy
+        if (other.gameObject.tag == "LeftWall" || other.gameObject.tag == "RightWall")
+        {
+            speed = temp;
+        }
+    }
 }

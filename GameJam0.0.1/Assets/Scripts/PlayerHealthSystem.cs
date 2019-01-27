@@ -9,6 +9,11 @@ public class PlayerHealthSystem : MonoBehaviour
     public bool attacked = false;
     public float lives = 4;
     public EnemyHealthSystem enemy;
+    public Sprite SecondLive;
+    public Sprite ThirdLive;
+    public Sprite ForthLive;
+    private SpriteRenderer RenderSprite;
+    public Transform RespawnPoint;
 
 
     //public float AttackSpeed;
@@ -16,7 +21,9 @@ public class PlayerHealthSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        RenderSprite = GetComponent<SpriteRenderer>();
         Debug.LogWarning("Health = " + health);
+        RespawnPoint = GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -27,9 +34,17 @@ public class PlayerHealthSystem : MonoBehaviour
             TakeDamage();
             Debug.Log(health);
         }
-        else if (this.health <= 0)
+        else if (this.health <= 0 && lives >=1)
         {
-            this.gameObject.SetActive(false);
+            //  this.gameObject.SetActive(false);
+
+            this.transform.position = RespawnPoint.transform.position;
+            lives = lives - 1;
+            ChangeSprite();
+            health = 100;
+            Debug.Log("lives remaining: " + lives);
+          //  this.gameObject.SetActive(true);
+
             //teleport to respawn
             //change sprite
             // set active to false
@@ -63,6 +78,22 @@ public class PlayerHealthSystem : MonoBehaviour
         {
             NextHit = Time.time + enemy.AttackSpeed;
             health = health - enemy.attackDmg;//subtracts the amoutn of damage done from the players health
+        }
+    }
+
+    void ChangeSprite()
+    {
+        if (lives == 3)
+        {
+            RenderSprite.sprite = SecondLive;
+        }
+        if (lives == 2)
+        {
+            RenderSprite.sprite = ThirdLive;
+        }
+        if (lives == 1)
+        {
+            RenderSprite.sprite = ForthLive;
         }
     }
 }

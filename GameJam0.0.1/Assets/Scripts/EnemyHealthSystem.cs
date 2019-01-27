@@ -7,7 +7,7 @@ public class EnemyHealthSystem : MonoBehaviour
 {
     public float health;
     public float attackDmg;
-    public float AttackSpeed = 1f;
+    public float AttackSpeed;
 
 
 
