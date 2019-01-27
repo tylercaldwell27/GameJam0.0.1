@@ -14,6 +14,7 @@ public class PlayerHealthSystem : MonoBehaviour
     public Sprite ForthLive;
     private SpriteRenderer RenderSprite;
     public Transform RespawnPoint;
+    public Transform player;
 
 
     //public float AttackSpeed;
@@ -24,6 +25,7 @@ public class PlayerHealthSystem : MonoBehaviour
         RenderSprite = GetComponent<SpriteRenderer>();
         Debug.LogWarning("Health = " + health);
         RespawnPoint = GetComponent<Transform>();
+        player = GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -38,7 +40,7 @@ public class PlayerHealthSystem : MonoBehaviour
         {
             //  this.gameObject.SetActive(false);
 
-            this.transform.position = RespawnPoint.transform.position;
+            player.transform.position = new Vector3(0,1.4f,0);
             lives = lives - 1;
             ChangeSprite();
             health = 100;
