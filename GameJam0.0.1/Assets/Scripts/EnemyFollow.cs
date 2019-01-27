@@ -9,8 +9,9 @@ public class EnemyFollow : MonoBehaviour
     public float speed = 5f;
     public float temp;
     private Transform target;
+    public LayerMask ignoreCol;
 
-
+    
     // Use this for initialization
     void Start()
     {
@@ -31,6 +32,10 @@ public class EnemyFollow : MonoBehaviour
         if (other.gameObject.tag == "LeftWall" || other.gameObject.tag == "RightWall")
         {
             speed = 0;
+        }
+        if (other.gameObject.tag == "Generic")
+        {
+            Physics2D.IgnoreLayerCollision(11, 11);
         }
     }
 

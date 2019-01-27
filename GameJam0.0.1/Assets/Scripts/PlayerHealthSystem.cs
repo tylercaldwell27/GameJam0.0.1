@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerHealthSystem : MonoBehaviour
 {
     public float health;
@@ -15,6 +15,10 @@ public class PlayerHealthSystem : MonoBehaviour
     private SpriteRenderer RenderSprite;
     public Transform RespawnPoint;
     public Transform player;
+    public GameObject wife;
+    public GameObject boah;
+    public GameObject girl;
+
 
 
     //public float AttackSpeed;
@@ -36,20 +40,24 @@ public class PlayerHealthSystem : MonoBehaviour
             TakeDamage();
             Debug.Log(health);
         }
-        else if (this.health <= 0 && lives >=1)
+        else if (this.health <= 0 && lives >= 1)
         {
             //  this.gameObject.SetActive(false);
 
-            player.transform.position = new Vector3(0,1.4f,0);
+            player.transform.position = new Vector3(0, 1.4f, 0);
             lives = lives - 1;
             ChangeSprite();
             health = 100;
             Debug.Log("lives remaining: " + lives);
-          //  this.gameObject.SetActive(true);
+            //  this.gameObject.SetActive(true);
 
             //teleport to respawn
             //change sprite
             // set active to false
+        }
+        else if (lives == 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
     }
@@ -88,14 +96,17 @@ public class PlayerHealthSystem : MonoBehaviour
         if (lives == 3)
         {
             RenderSprite.sprite = SecondLive;
+            wife.gameObject.SetActive(false);
         }
         if (lives == 2)
         {
             RenderSprite.sprite = ThirdLive;
+            boah.gameObject.SetActive(false);
         }
         if (lives == 1)
         {
             RenderSprite.sprite = ForthLive;
+            girl.gameObject.SetActive(false);
         }
     }
 }

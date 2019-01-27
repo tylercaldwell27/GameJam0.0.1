@@ -8,7 +8,7 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     public float fireRate = 0;
-    public float Damage = 10;
+    public float Damage = 30;
     public LayerMask whatToHit;
 
     public Transform BulletTrailPrefab;
@@ -68,6 +68,7 @@ public class Gun : MonoBehaviour
             {
                 EnemyHealthSystem enemyHealthScript = hit.transform.GetComponent<EnemyHealthSystem>();
                 enemyHealthScript.DeductHealth(Damage);
+             
             }
 
 
